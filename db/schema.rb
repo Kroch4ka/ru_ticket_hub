@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_18_071346) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_24_083952) do
+  create_table "tickets", force: :cascade do |t|
+    t.string "title", limit: 255, null: false
+    t.text "description", null: false
+    t.integer "priority", default: 0, null: false
+    t.string "aasm_state"
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_tickets_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
     t.string "password_digest", null: false
@@ -21,4 +32,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_18_071346) do
     t.index ["profile_type", "profile_id"], name: "index_users_on_profile"
   end
 
+  add_foreign_key "tickets", "users"
 end

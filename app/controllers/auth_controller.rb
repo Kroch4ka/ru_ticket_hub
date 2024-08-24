@@ -2,27 +2,31 @@
 
 class AuthController < ApplicationController
   def login
-    user = User.authenticate_by(login_params)
-    if user
+    email = login_params[:email]
+    password = login_params[:password]
+    user = User.find_by(email: email)
+    if user && user.authenticate(password)
       render json: { token: encode_token({ user_id: user.id }) }
-    else
-      render json: { error: { message: "email or password is not valid" } }
     end
   end
 
   def sign_up
+    email = sign_up_params[:email]
     password = sign_up_params[:password]
-    confirmation_password = sign_up_params[:password_confirmation]
-    if password != confirmation_password
-      render json: { error: { message: "password confirmation doesn't match" } }, status: :forbidden
-    else
-      user = User.create!(email: sign_up_params[:email], password: sign_up_params[:password])
-      render json: { token: encode_token({ user_id: user.id }) }
+    if User.find_by(email: email).nil?
+      user = User.new(email: email, password: password, password_confirmation: password)
+      if user.save
+        render json: { token: encode_token({ user_id: user.id }) }, status: :created
+      end
     end
+    render json: { error: "Email already exists" }, status: :unprocessable_entity
   end
 
+  # logout endpoint (not implemented) - delete this method when implementing JWT authentication in your application
   def logout
-
+    # delete the user's token from the session
+    # clear_session
+    render json: { message: "Logged out successfully" }
   end
 
   private
