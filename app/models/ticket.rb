@@ -2,7 +2,7 @@ class Ticket < ApplicationRecord
   include AASM
 
   belongs_to :operator, optional: true, class_name: "User", foreign_key: "operator_id"
-  belongs_to :customer, class_name: "User", foreign_key: "customer_id"
+  belongs_to :creator, class_name: "User", foreign_key: "customer_id"
   belongs_to :company
 
   aasm requires_lock: true do

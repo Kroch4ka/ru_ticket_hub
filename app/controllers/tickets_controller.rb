@@ -1,6 +1,10 @@
 class TicketsController < ApplicationController
   before_action :authenticate_and_set_user
 
+  def index
+    render json: current_user.tickets.includes(:company), status: :ok
+  end
+
   def create
     return render json: { message: "Not exist or active" }, status: :unprocessable_content unless company&.active?
     company_user = CompanyUser.find_by(user_id: current_user.id, company_id: company.id)

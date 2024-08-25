@@ -7,4 +7,6 @@ class User < ApplicationRecord
   ADMIN_ROLE = 3
 
   enum :role, { customer: CUSTOMER_ROLE, operator: OPERATOR_ROLE, verifier: VERIFIER_ROLE, admin: ADMIN_ROLE }
+
+  has_many :tickets, -> { joins(:tickets).where("tickets.creator_id = ?", id) }
 end
