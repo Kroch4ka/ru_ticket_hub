@@ -45,6 +45,14 @@ gem 'aasm'
 
 gem 'faraday'
 
+gem 'api_guard'
+
+gem 'active_interaction', '~> 5.3'
+
+gem 'faker'
+
+gem 'after_commit_everywhere'
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
@@ -56,6 +64,7 @@ group :development, :test do
   gem "rspec"
   gem "rspec-rails"
   gem "annotate"
+  gem "byebug"
 end
 
 group :development do
@@ -76,3 +85,5 @@ group :test do
 end
 
 gem "active_model_serializers", "~> 0.10.14"
+
+gem "pundit", "~> 2.3"
