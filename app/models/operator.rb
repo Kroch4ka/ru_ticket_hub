@@ -1,2 +1,0 @@
-class Operator < Employee
-end

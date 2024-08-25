@@ -4,7 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="24abce8b-7e91-4edd-9977-3cf4bf2d2973" name="Changes" comment="" />
+    <list default="true" id="24abce8b-7e91-4edd-9977-3cf4bf2d2973" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/interactions/current.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/ru_ticket_hub.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ru_ticket_hub.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/auth_controller.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/tickets_controller.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/admin.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/client.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/employee.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/manager.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/message.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/operator.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/ticket.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/user.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/verificator.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migrate/20240818071346_create_users.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migrate/20240824083952_create_tickets.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migrate/20240824093047_create_messages.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/controllers/auth_controller_spec.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/controllers/tickets_controller_spec.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/models/message_spec.rb" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,6 +38,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Ruby File" />
         <option value="Ruby Class" />
       </list>
     </option>
@@ -28,6 +54,7 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< Updated upstream
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
@@ -40,6 +67,21 @@
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;ruby.structure.view.model.defaults.configured&quot;: &quot;true&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+=======
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "24__08__2024-add__basic__ticket__endpoints",
+    "last_opened_file_path": "/home/nikita/ru_ticket_hub",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ruby.structure.view.model.defaults.configured": "true",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.ruby.settings.RubyActiveModuleSdkConfigurable",
+    "vue.rearranger.settings.migration": "true"
+>>>>>>> Stashed changes
   }
 }</component>
   <component name="RunManager" selected="Rails.ru_ticket_hub">
@@ -52,7 +94,11 @@
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
       <EXTENSION ID="BundlerRunConfigurationExtension" BUNDLE_MODE="AUTO" bundleExecEnabled="true" />
+<<<<<<< Updated upstream
       <EXTENSION ID="RubyCoverageRunConfigurationExtension" track_test_folders="true" runner="rcov" ENABLE_BRANCH_COVERAGE="true" ENABLE_FORKED_COVERAGE="true">
+=======
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" runner="rcov">
+>>>>>>> Stashed changes
         <COVERAGE_PATTERN ENABLED="true">
           <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
         </COVERAGE_PATTERN>
@@ -76,7 +122,11 @@
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
       <EXTENSION ID="BundlerRunConfigurationExtension" BUNDLE_MODE="AUTO" bundleExecEnabled="true" />
+<<<<<<< Updated upstream
       <EXTENSION ID="RubyCoverageRunConfigurationExtension" track_test_folders="true" runner="rcov" ENABLE_BRANCH_COVERAGE="true" ENABLE_FORKED_COVERAGE="true">
+=======
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" runner="rcov">
+>>>>>>> Stashed changes
         <COVERAGE_PATTERN ENABLED="true">
           <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
         </COVERAGE_PATTERN>
@@ -103,7 +153,11 @@
         <env name="RAILS_ENV" value="test" />
       </envs>
       <EXTENSION ID="BundlerRunConfigurationExtension" BUNDLE_MODE="AUTO" bundleExecEnabled="true" />
+<<<<<<< Updated upstream
       <EXTENSION ID="RubyCoverageRunConfigurationExtension" track_test_folders="true" runner="rcov" ENABLE_BRANCH_COVERAGE="true" ENABLE_FORKED_COVERAGE="true">
+=======
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" runner="rcov">
+>>>>>>> Stashed changes
         <COVERAGE_PATTERN ENABLED="true">
           <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
         </COVERAGE_PATTERN>
@@ -136,6 +190,8 @@
       <option name="presentableId" value="Default" />
       <updated>1723911653031</updated>
       <workItem from="1723911654041" duration="7125000" />
+      <workItem from="1724504840715" duration="48000" />
+      <workItem from="1724512531551" duration="12395000" />
     </task>
     <servers />
   </component>
