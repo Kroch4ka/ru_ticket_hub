@@ -8,7 +8,6 @@ ApiGuard.setup do |config|
   # Validity of the refresh token
   # Default: 2 weeks
   # config.refresh_token_validity = 2.weeks
-  config.refresh_token_validity = 1.day
   # Secret key for signing (encoding & decoding) the JWT access token
   # Default: 'secret_key_base' from Rails secrets
   # config.token_signing_secret = 'my_signing_secret'
