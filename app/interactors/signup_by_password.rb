@@ -1,12 +1,12 @@
-class Signup
+class SignupByPassword
   include Interactor
 
   def call
-    context.fail!(error: :not_confirmed) unless password_confirmed?
+    context.fail!(message: "not_confirmed") unless password_confirmed?
     if account.valid?
       account.save!
     else
-      context.fail!(error: account.errors.messages)
+      context.fail!(message: account.errors.messages)
     end
   end
 
