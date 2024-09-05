@@ -51,6 +51,16 @@ gem 'faker'
 
 gem 'after_commit_everywhere'
 
+gem 'grape'
+
+gem 'grape-jwt-authentication'
+
+gem 'interactor'
+
+gem 'interactor-rails'
+
+gem "email_validator"
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
