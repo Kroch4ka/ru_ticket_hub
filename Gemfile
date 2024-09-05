@@ -45,8 +45,6 @@ gem 'aasm'
 
 gem 'faraday'
 
-gem 'api_guard'
-
 gem 'active_interaction', '~> 5.3'
 
 gem 'faker'
