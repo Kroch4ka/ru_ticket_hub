@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_09_05_201938) do
+ActiveRecord::Schema[7.1].define(version: 2024_09_06_175025) do
   create_table "accounts", force: :cascade do |t|
     t.string "email"
     t.string "password_digest"
@@ -19,4 +19,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_05_201938) do
     t.index ["email"], name: "index_accounts_on_email", unique: true
   end
 
+  create_table "token_storages", force: :cascade do |t|
+    t.string "token", null: false
+    t.integer "account_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_token_storages_on_account_id"
+    t.index ["token"], name: "index_token_storages_on_token", unique: true
+  end
+
+  add_foreign_key "token_storages", "accounts"
 end

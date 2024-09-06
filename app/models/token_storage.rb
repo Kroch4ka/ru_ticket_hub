@@ -1,0 +1,2 @@
+class TokenStorage < ApplicationRecord
+end
