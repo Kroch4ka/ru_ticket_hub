@@ -11,7 +11,7 @@ Grape::Jwt::Authentication.configure do |conf|
 
   conf.authenticator = proc do |token|
     jwt = Keyless::Jwt.new(token)
-    in_storage = !!TokenStorage.find_by(token:, account_id: jwt.payload.account_id)
+    in_storage = AccessToken.exists?(token:, account_id: jwt.payload.account_id)
     jwt.valid? && in_storage
   end
 end

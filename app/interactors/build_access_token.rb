@@ -8,8 +8,8 @@ class BuildAccessToken
   def call
     context.token = JWT.encode(
       { **context.payload, exp: EXPIRATION_PERIOD },
-      ENV.fetch("HMAC_JWT_SECRET"),
-      "HS256"
+      ENV.fetch('HMAC_JWT_SECRET'),
+      'HS256'
     )
   end
 end
