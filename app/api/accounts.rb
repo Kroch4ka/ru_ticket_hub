@@ -8,6 +8,7 @@ class Accounts < Grape::API
 
   helpers ::Helpers::AuthHelpers
 
+  # TODO: добавить refresh_token
   resource :accounts do
     params do
       requires :password, type: String

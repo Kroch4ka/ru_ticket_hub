@@ -3,7 +3,7 @@
 class BuildAccessToken
   include Interactor
 
-  EXPIRATION_PERIOD = Time.now.to_i + 15 * 3600
+  EXPIRATION_PERIOD = Time.now.to_i + 15.minutes.to_i
 
   def call
     context.token = JWT.encode(
