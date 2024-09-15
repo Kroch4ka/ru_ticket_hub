@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_09_14_152339) do
+ActiveRecord::Schema[7.1].define(version: 2024_09_14_184120) do
   create_table "access_tokens", force: :cascade do |t|
     t.string "token", null: false
     t.integer "account_id", null: false
@@ -30,6 +30,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_14_152339) do
     t.index ["email"], name: "index_accounts_on_email", unique: true
   end
 
+  create_table "companies", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "customers", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "operators", force: :cascade do |t|
     t.integer "role", default: 0, null: false
     t.datetime "created_at", null: false
@@ -47,6 +57,22 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_14_152339) do
     t.index ["account_id"], name: "index_profiles_on_account_id"
   end
 
+  create_table "tickets", force: :cascade do |t|
+    t.string "subject", null: false
+    t.text "body", null: false
+    t.integer "operator_id"
+    t.integer "customer_id", null: false
+    t.integer "company_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_tickets_on_company_id"
+    t.index ["customer_id"], name: "index_tickets_on_customer_id"
+    t.index ["operator_id"], name: "index_tickets_on_operator_id"
+  end
+
   add_foreign_key "access_tokens", "accounts"
   add_foreign_key "profiles", "accounts"
+  add_foreign_key "tickets", "companies"
+  add_foreign_key "tickets", "customers"
+  add_foreign_key "tickets", "operators"
 end

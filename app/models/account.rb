@@ -5,4 +5,6 @@ class Account < ApplicationRecord
 
   validates :email, email: true, uniqueness: true
   validates :password, presence: true, length: { minimum: 6 }
+
+  has_one :profile
 end
