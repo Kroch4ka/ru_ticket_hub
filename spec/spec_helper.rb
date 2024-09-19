@@ -18,6 +18,7 @@
 
 require 'factory_bot'
 require 'byebug'
+require 'faker'
 
 RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods

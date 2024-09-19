@@ -4,6 +4,7 @@ class Ticket < ApplicationRecord
   belongs_to :operator, optional: true
   belongs_to :customer
   belongs_to :company
+  has_many :messages
 
   aasm column: :status do
     state :new, initial: true

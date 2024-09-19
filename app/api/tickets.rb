@@ -24,7 +24,7 @@ class Tickets < Grape::API
     params do
       requires :id, type: Integer
     end
-    post ":id/take" do
+    post ':id/take' do
       declared_params = declared(params)
       result = AssignTicket.call(**declared_params, operator_id: current_account.profile.operator.id)
       error! result.message, status: 422 unless result.success?
@@ -34,7 +34,7 @@ class Tickets < Grape::API
       requires :id, type: Integer
       requires :operator_id, type: Integer
     end
-    post ":id/assign" do
+    post ':id/assign' do
       declared_params = declared(params)
       result = AssignTicket.call(**declared_params)
       error! result.message, status: 422 unless result.success?
@@ -43,9 +43,19 @@ class Tickets < Grape::API
     params do
       requires :id, type: Integer
     end
-    post ":id/cancel" do
+    post ':id/cancel' do
       declared_params = declared(params)
       result = CancelTicket.call(**declared_params)
+      error! result.message, status: 422 unless result.success?
+    end
+
+    params do
+      requires :id, type: Integer
+      requires :body, type: String
+    end
+    post ':id/reply' do
+      declared_params = declared(params)
+      result = ReplyToTicket.call(**declared_params, operator_id: current_account.profile.operator.id)
       error! result.message, status: 422 unless result.success?
     end
   end

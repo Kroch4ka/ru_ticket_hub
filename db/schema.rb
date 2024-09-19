@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_09_14_184120) do
+ActiveRecord::Schema[7.1].define(version: 2024_09_15_155335) do
   create_table "access_tokens", force: :cascade do |t|
     t.string "token", null: false
     t.integer "account_id", null: false
@@ -31,6 +31,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_14_184120) do
   end
 
   create_table "companies", force: :cascade do |t|
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -38,6 +39,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_14_184120) do
   create_table "customers", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string "body", null: false
+    t.integer "author_id", null: false
+    t.integer "ticket_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_messages_on_author_id"
+    t.index ["ticket_id"], name: "index_messages_on_ticket_id"
   end
 
   create_table "operators", force: :cascade do |t|
@@ -60,19 +71,22 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_14_184120) do
   create_table "tickets", force: :cascade do |t|
     t.string "subject", null: false
     t.text "body", null: false
+    t.string "status"
     t.integer "operator_id"
-    t.integer "customer_id", null: false
+    t.integer "profile_id", null: false
     t.integer "company_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["company_id"], name: "index_tickets_on_company_id"
-    t.index ["customer_id"], name: "index_tickets_on_customer_id"
     t.index ["operator_id"], name: "index_tickets_on_operator_id"
+    t.index ["profile_id"], name: "index_tickets_on_profile_id"
   end
 
   add_foreign_key "access_tokens", "accounts"
+  add_foreign_key "messages", "profiles", column: "author_id"
+  add_foreign_key "messages", "tickets"
   add_foreign_key "profiles", "accounts"
   add_foreign_key "tickets", "companies"
-  add_foreign_key "tickets", "customers"
   add_foreign_key "tickets", "operators"
+  add_foreign_key "tickets", "profiles"
 end

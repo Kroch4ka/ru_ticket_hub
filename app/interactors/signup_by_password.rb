@@ -3,10 +3,7 @@
 class SignupByPassword
   include Interactor
 
-  def call
-    context.fail!(message: 'not_confirmed') unless password_confirmed?
-    account.valid? ? create_account : context.fail!(message: account.errors.messages)
-  end
+  def call = account.valid? ? create_account : context.fail!(message: account.errors.messages)
 
   private
 

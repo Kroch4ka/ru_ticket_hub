@@ -17,6 +17,8 @@ class FinalizeResetPassword
     account.tap do |acc|
       acc.password = context.password
       acc.password_confirmation = context.password_confirmation
+      acc.reset_password_token = nil
+      acc.reset_password_sent_at = nil
     end
   end
 end

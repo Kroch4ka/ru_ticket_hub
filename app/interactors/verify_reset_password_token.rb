@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class ConfirmResetPasswordToken
+class VerifyResetPasswordToken
   include Interactor
 
   RECOVERY_TOKEN_LIFETIME = 15.minutes

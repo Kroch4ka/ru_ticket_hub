@@ -33,6 +33,7 @@ class Accounts < Grape::API
       declared_params = declared(params)
       result = LoginByPassword.call(**declared_params, ip_address: client_ip)
       if result.success?
+        status 200
         { token: result.token }
       else
         error! result.message, 401
@@ -47,6 +48,7 @@ class Accounts < Grape::API
         declared_params = declared(params)
         result = SendResetPasswordToken.call(**declared_params)
         if result.success?
+          status 200
           { message: 'Recovery email sent successfully' }
         else
           error! result.message, 400
@@ -56,10 +58,11 @@ class Accounts < Grape::API
       params do
         requires :reset_password_token, type: String
       end
-      post 'confirm' do
+      post 'verify' do
         declared_params = declared(params)
-        result = ConfirmResetPasswordToken.call(**declared_params)
+        result = VerifyResetPasswordToken.call(**declared_params)
         if result.success?
+          status 200
           { message: 'Confirmation is success!' }
         else
           error! result.message, 400
@@ -75,7 +78,8 @@ class Accounts < Grape::API
         declared_params = declared(params)
         result = FinalizeResetPassword.call(**declared_params)
         if result.success?
-          { message: 'Confirmation is success!' }
+          status 200
+          { message: 'Reset password is success!' }
         else
           error! result.message, 400
         end
@@ -85,7 +89,7 @@ class Accounts < Grape::API
     namespace do
       auth :jwt
       post 'log_out' do
-        AccessToken.find_by(token: context.token)&.destroy
+        AccessToken.find_by(token: original_request_jwt)&.destroy
         { message: 'Logged out successfully' }
       end
     end
