@@ -62,6 +62,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_15_155335) do
     t.string "phone_number"
     t.string "profileable_type"
     t.string "profileable_id"
+    t.boolean "active", default: false
     t.integer "account_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

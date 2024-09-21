@@ -32,7 +32,7 @@ class Accounts < Grape::API
     end
     post 'log_in' do
       declared_params = declared(params)
-      result = LoginByPassword.call(**declared_params, ip_address: client_ip)
+      result = LoginByPassword.call(**declared_params)
       if result.success?
         status 200
         { token: result.token }

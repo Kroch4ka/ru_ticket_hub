@@ -9,12 +9,17 @@ class SignupByPassword
 
   def create_account = ActiveRecord::Base.transaction do
     account.save!
-    result = BuildAccessToken.call(payload: { account_id: account.id })
-    result.success? ? context.token = result.token : context.fail!(message: 'can not generate access token')
-    AccessToken.create!(token: context.token, account_id: account.id)
+    create_token
+    account.create_profile(profileable: Customer.new)
   rescue StandardError => e
     Rails.logger.error("Error creating account: #{e.message}")
     context.fail!(message: 'Unable to create account')
+  end
+
+  def create_token
+    result = BuildAccessToken.call(payload: { account_id: account.id })
+    result.success? ? context.token = result.token : context.fail!(message: 'can not generate access token')
+    AccessToken.create!(token: context.token, account_id: account.id)
   end
 
   def account = @account ||= Account.new(password: context.password,
