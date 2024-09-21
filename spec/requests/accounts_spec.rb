@@ -13,9 +13,9 @@ RSpec.describe Accounts do
     end
 
     it 'creates a new account with valid parameters' do
-      expect do
-        post '/accounts/sign_up', params: valid_attributes
-      end.to change(Account, :count).by(1)
+      post '/accounts/sign_up', params: valid_attributes
+      expect(response).to have_http_status(:ok)
+      expect(Account.count).to eq(1)
     end
   end
 

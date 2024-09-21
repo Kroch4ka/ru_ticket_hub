@@ -19,6 +19,7 @@ class Accounts < Grape::API
       declared_params = declared(params)
       result = SignupByPassword.call(**declared_params)
       if result.success?
+        status 200
         { token: result.token }
       else
         error! result.message, 401
