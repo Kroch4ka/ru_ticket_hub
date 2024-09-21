@@ -8,9 +8,11 @@ class SignupByPassword
   private
 
   def create_account = ActiveRecord::Base.transaction do
-    account.save!
-    create_token
-    account.create_profile(profileable: Customer.new)
+    account.with_lock do
+      account.save!
+      create_token
+      account.create_profile(profileable: Customer.new)
+    end
   rescue StandardError => e
     Rails.logger.error("Error creating account: #{e.message}")
     context.fail!(message: 'Unable to create account')
