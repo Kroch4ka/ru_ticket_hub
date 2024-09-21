@@ -5,7 +5,7 @@ class BuildAccessToken
 
   def call
     context.token = JWT.encode(
-      { **context.payload, exp: Time.now.to_i + 15.minutes.to_i },
+      { **context.payload, exp: Time.now.to_i + 40.minutes.to_i },
       ENV.fetch('HMAC_JWT_SECRET'),
       'HS256'
     )
