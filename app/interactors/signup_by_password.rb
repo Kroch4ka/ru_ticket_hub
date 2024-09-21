@@ -14,7 +14,7 @@ class SignupByPassword
     AccessToken.create!(token: context.token, account_id: account.id)
   rescue StandardError => e
     Rails.logger.error("Error creating account: #{e.message}")
-    context.fail!(message: 'can not generate access token')
+    context.fail!(message: e.message)
   end
 
   def account = @account ||= Account.new(password: context.password,

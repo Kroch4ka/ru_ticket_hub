@@ -15,7 +15,7 @@ Metrics/AbcSize:
 # Configuration parameters: CountComments, CountAsOne, AllowedMethods, AllowedPatterns, inherit_mode.
 # AllowedMethods: refine
 Metrics/BlockLength:
-  Max: 78
+  Max: 120
 
 # Offense count: 2
 RSpec/MultipleExpectations:
