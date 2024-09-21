@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Example
 class AccountMailer < ApplicationMailer
   def password_recovery_email
     @account = params[:account]
