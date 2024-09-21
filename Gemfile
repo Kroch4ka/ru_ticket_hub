@@ -65,6 +65,8 @@ gem 'after_commit_everywhere'
 
 gem 'grape'
 
+gem 'rollbar'
+
 gem 'grape-jwt-authentication'
 
 gem 'interactor'
