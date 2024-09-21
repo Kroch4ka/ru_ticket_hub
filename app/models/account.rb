@@ -7,7 +7,7 @@ class Account < ApplicationRecord
   validates :password,
             presence: true,
             length: { minimum: 6 },
-            if: ->(record) { record.new_record? || record.password.present? || record.password_confirmation.present?  }
+            if: ->(record) { record.new_record? || record.password.present? || record.password_confirmation.present? }
 
-  has_one :profile
+  has_one :profile, dependent: :destroy
 end

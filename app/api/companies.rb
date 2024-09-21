@@ -13,6 +13,6 @@ class Companies < Grape::API
     params do
       requires :id, type: Integer
     end
-    get ":id" do; end
+    get ':id' do; end
   end
 end

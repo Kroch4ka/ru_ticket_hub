@@ -4,13 +4,13 @@ require 'rails_helper'
 
 RSpec.describe Accounts do
   describe 'POST /accounts/sign_up' do
-    let(:valid_attributes) {
+    let(:valid_attributes) do
       {
         email: 'test@example.com',
         password: 'test123',
         password_confirmation: 'test123'
       }
-    }
+    end
 
     it 'creates a new account with valid parameters' do
       expect do
