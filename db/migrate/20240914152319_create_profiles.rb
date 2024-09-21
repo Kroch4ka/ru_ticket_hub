@@ -7,6 +7,7 @@ class CreateProfiles < ActiveRecord::Migration[7.1]
       t.string :phone_number
       t.string :profileable_type
       t.string :profileable_id
+      t.boolean :active, default: false
       t.references :account, null: false, foreign_key: true
       t.timestamps
     end

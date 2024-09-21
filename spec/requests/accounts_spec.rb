@@ -17,6 +17,12 @@ RSpec.describe Accounts do
       expect(response).to have_http_status(:ok)
       expect(Account.count).to eq(1)
     end
+
+    it 'creates a new non active customer' do
+      post '/accounts/sign_up', params: valid_attributes
+      expect(Customer.count).to eq(1)
+      expect(Profile.all.first.active).to be_falsey
+    end
   end
 
   describe 'POST /accounts/log_in' do

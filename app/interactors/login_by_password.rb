@@ -10,11 +10,13 @@ class LoginByPassword
     account&.authenticate(password) ? build_token(account) : fail_login!
   end
 
-  def build_token(account) = ActiveRecord::Base.transaction do
+  def build_token(account)
     result = BuildAccessToken.call(payload: { account_id: account.id })
-    result.success? ? context.token = result.token : fail_login!
-    AccessToken.create!(token: context.token, account_id: account.id)
-  rescue StandardError
+    fail_login! unless result.success?
+    AccessToken.create!(token: result.token, account_id: account.id)
+    context.token = result.token
+  rescue StandardError => e
+    Rails.logger.error(e.message)
     fail_login!
   end
 

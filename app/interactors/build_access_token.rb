@@ -3,11 +3,9 @@
 class BuildAccessToken
   include Interactor
 
-  EXPIRATION_PERIOD = Time.now.to_i + 15.minutes.to_i
-
   def call
     context.token = JWT.encode(
-      { **context.payload, exp: EXPIRATION_PERIOD },
+      { **context.payload, exp: Time.now.to_i + 15.minutes.to_i },
       ENV.fetch('HMAC_JWT_SECRET'),
       'HS256'
     )
