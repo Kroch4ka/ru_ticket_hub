@@ -3,7 +3,5 @@
 class ReplyToTicket
   include Interactor
 
-  def call
-
-  end
+  def call; end
 end
