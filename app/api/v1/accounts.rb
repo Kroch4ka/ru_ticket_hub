@@ -2,13 +2,6 @@
 
 module V1
   class Accounts < Grape::API
-    format :json
-
-    use ActionDispatch::RemoteIp
-    include Grape::Jwt::Authentication
-
-    helpers ::Helpers::AuthHelpers
-
     # TODO: добавить refresh_token
     resource :accounts do
       params do
@@ -90,6 +83,7 @@ module V1
 
       namespace do
         auth :jwt
+
         post 'log_out' do
           AccessToken.find_by(token: original_request_jwt)&.destroy
           { message: 'Logged out successfully' }

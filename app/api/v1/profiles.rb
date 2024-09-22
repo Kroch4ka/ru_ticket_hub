@@ -2,14 +2,9 @@
 
 module V1
   class Profiles < Grape::API
-    format :json
-    auth :jwt
-
-    use ActionDispatch::RemoteIp
-    include Grape::Jwt::Authentication
-    helpers ::Helpers::AuthHelpers
-
     namespace :profiles do
+      auth :jwt
+
       get 'current' do
         status 200
         current_account.profile

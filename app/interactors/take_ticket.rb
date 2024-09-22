@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class AssignTicket
+class TakeTicket
   include Interactor
 
   def call
